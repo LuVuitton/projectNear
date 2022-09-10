@@ -1,0 +1,12 @@
+.mainWrapper {
+border: 1px solid black;
+
+}
+
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+
+}
