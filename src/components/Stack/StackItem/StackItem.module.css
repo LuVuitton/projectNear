@@ -1,12 +1,25 @@
 .mainWrapper {
 border: 1px solid black;
-
 }
 
 .item {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 70px;
+    height: 60px;
+}
 
+.more {
+    font-size: 10px;
+    text-align: right;
+    padding-right: 5px;
+    line-height: 10px;
+}
+
+.moreRed {
+    color: red;
+}
+
+.moreGreen {
+    color: green;
 }

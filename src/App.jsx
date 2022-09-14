@@ -5,6 +5,7 @@ import Offer from "./components/Offer/Offer";
 import Profile from "./components/Profile/Profile";
 import Stack from "./components/Stack/Stack";
 import Setting from "./components/Setting/Setting";
+import TestApi from "./components/TestApi/TestApi";
 import { Routes, Route } from "react-router-dom";
 import NavBottom from "./components/NavBottom/NavBottom";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/stack" element={<Stack />} />
+        <Route path="/test" element={<TestApi />} />
         <Route path="*" element={<Menu />} />
       </Routes>
 

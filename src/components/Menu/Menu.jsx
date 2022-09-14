@@ -8,7 +8,8 @@ const menuData = [
   { link: "/offer", navName: "offer", key:4},
   { link: "/profile", navName: "profile", key:5},
   { link: "/setting", navName: "setting", key:6},
-  { link: "/stack", navName: "stack", key:7}
+  { link: "/stack", navName: "stack", key:7},
+  { link: "/test", navName: "test", key:8}
 ]
 
 const mapMenu = menuData.map(e=> <Link key={e.key} className={menuS.item} to={e.link}>{e.navName}</Link>)
