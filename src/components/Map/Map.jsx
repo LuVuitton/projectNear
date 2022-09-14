@@ -1,6 +1,8 @@
+import mapS from './Map.module.css' 
+
 function Map() {
     return(
-        <div>MAP</div>
+        <div className={mapS.mapArea}>MAP</div>
     )
 }
 

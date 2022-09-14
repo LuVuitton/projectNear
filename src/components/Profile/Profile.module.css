@@ -1,0 +1,15 @@
+.mainWrapper {
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr;
+    gap: 20px;
+}
+
+.name {
+    display: flex;
+}
+
+.photo {
+    width: 100px;
+    height: 100px;
+    border: 1px salmon solid;
+}

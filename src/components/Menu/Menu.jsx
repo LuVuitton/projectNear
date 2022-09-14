@@ -4,9 +4,8 @@ import menuS from './Menu.module.css'
 
 const menuData = [
   { link: "/map", navName: "map", key:1},
-  { link: "/menu", navName: "menu", key:2},
   { link: "/messenger", navName: "messenger", key:3},
-  { link: "/offers", navName: "offers", key:4},
+  { link: "/offer", navName: "offer", key:4},
   { link: "/profile", navName: "profile", key:5},
   { link: "/setting", navName: "setting", key:6},
   { link: "/stack", navName: "stack", key:7}

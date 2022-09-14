@@ -1,7 +1,7 @@
 import Map from "./components/Map/Map";
 import Menu from "./components/Menu/Menu";
 import Messenger from "./components/Messenger/Messenger";
-import Offers from "./components/Offers/Offers";
+import Offer from "./components/Offer/Offer";
 import Profile from "./components/Profile/Profile";
 import Stack from "./components/Stack/Stack";
 import Setting from "./components/Setting/Setting";
@@ -15,7 +15,7 @@ function App() {
         <Route path="/map" element={<Map />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/messenger" element={<Messenger />} />
-        <Route path="/offers" element={<Offers />} />
+        <Route path="/offer" element={<Offer />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/stack" element={<Stack />} />
