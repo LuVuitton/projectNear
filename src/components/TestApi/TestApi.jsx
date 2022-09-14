@@ -4,27 +4,27 @@ import testApiS from "./TestApi.module.css";
 
 function TestApi() {
   
-    const [counter, setCounter] = useState('Hello')
-    
- const plus =()=> {
-    setCounter(counter + ' World')
-};
+//     const [counter, setCounter] = useState('Hello')
 
-    return (
+//  const plus =()=> {
+//     setCounter(counter + ' World')
+// };
+
+//     return (
      
-   <div className={testApiS.mainWrapper}>
-      <div className={testApiS.content}>
+//    <div className={testApiS.mainWrapper}>
+//       <div className={testApiS.content}>
 
-        <div> {counter} </div>
+//         <div> {counter} </div>
 
-        <button onClick={plus}>CLICK</button>
+//         <button onClick={plus}>CLICK</button>
 
     
 
-      </div>
-    </div>
+//       </div>
+//     </div>
   
-  );
+//   );
 }
 
 export default TestApi;
