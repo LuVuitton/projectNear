@@ -4,6 +4,8 @@
 }
 .item{
     text-align: center;
-border: 1px solid salmon;
+border: 1px solid #fff;
 width: 33%;
+color: rgba(0, 0, 0, 0.726);
+font-size: 20px;
 }

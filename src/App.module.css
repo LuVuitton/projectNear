@@ -1,0 +1,20 @@
+ 
+  .mainWrapper {
+    background: rgba(83, 139, 120, 0.062);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+    .content {
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-basis: auto;
+  }
+  .footer {
+    background: rgba(202, 119, 81, 0.123);  
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }

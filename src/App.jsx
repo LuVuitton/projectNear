@@ -6,25 +6,31 @@ import Profile from "./components/Profile/Profile";
 import Stack from "./components/Stack/Stack";
 import Setting from "./components/Setting/Setting";
 import TestApi from "./components/TestApi/TestApi";
-import { Routes, Route } from "react-router-dom";
 import NavBottom from "./components/NavBottom/NavBottom";
+
+import appS from "./App.module.css";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/map" element={<Map />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/messenger" element={<Messenger />} />
-        <Route path="/offer" element={<Offer />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/setting" element={<Setting />} />
-        <Route path="/stack" element={<Stack />} />
-        <Route path="/test" element={<TestApi />} />
-        <Route path="*" element={<Menu />} />
-      </Routes>
+    <div className={appS.mainWrapper}>
+      <div className={appS.content}>
+        <Routes>
+          <Route path="/map" element={<Map />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/messenger" element={<Messenger />} />
+          <Route path="/offer" element={<Offer />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/stack" element={<Stack />} />
+          <Route path="/test" element={<TestApi />} />
+          <Route path="*" element={<Menu />} />
+        </Routes>
+      </div>
 
-      <NavBottom />
+      <footer className={appS.footer}>
+        <NavBottom />
+      </footer>
     </div>
   );
 }
