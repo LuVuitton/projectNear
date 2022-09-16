@@ -7,9 +7,10 @@ import Stack from "./components/Stack/Stack";
 import Setting from "./components/Setting/Setting";
 import TestApi from "./components/TestApi/TestApi";
 import NavBottom from "./components/NavBottom/NavBottom";
-
 import appS from "./App.module.css";
 import { Routes, Route } from "react-router-dom";
+import Error from "./components/Error/Error";
+import Chat from "./components/Messenger/Chat/Chat";
 
 function App() {
   return (
@@ -18,13 +19,15 @@ function App() {
         <Routes>
           <Route path="/map" element={<Map />} />
           <Route path="/menu" element={<Menu />} />
-          <Route path="/messenger" element={<Messenger />} />
+          <Route exact path="/messenger" element={<Messenger />} />
+          <Route path="/messenger/:chatId" element={<Chat />} />
           <Route path="/offer" element={<Offer />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/setting" element={<Setting />} />
-          <Route path="/stack" element={<Stack />} />
+          <Route path="/Stack" element={<Stack />} />
           <Route path="/test" element={<TestApi />} />
-          <Route path="*" element={<Menu />} />
+          <Route path="*" element={<Error />} />
+
         </Routes>
       </div>
 

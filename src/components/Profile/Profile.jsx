@@ -11,7 +11,7 @@ function Profile() {
 
       </div>
 
-      <div className={profileS.about}>What languages do I know</div>
+      <div className={profileS.about}>What I know</div>
 
       <div className={profileS.completed}>What i did</div>
     </div>

@@ -1,20 +1,21 @@
 .mainWrapper {
-  width: 250px;
-  height: 250px;
-  border: 1px solid black; 
+ height: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.content {
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black; 
   color: cadetblue;
   font-size: xx-large;
-  text-align: center;
+  background-color: rgba(197, 79, 79, 0.158);
+  /* text-align: center; */
 }
 
-button {
-  display: block;
-  margin: auto;
-}

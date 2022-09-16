@@ -1,30 +1,23 @@
 import { useState } from "react";
-import testApiS from "./TestApi.module.css";
+import taS from "./TestApi.module.css";
  
 
 function TestApi() {
-  
-//     const [counter, setCounter] = useState('Hello')
 
-//  const plus =()=> {
-//     setCounter(counter + ' World')
-// };
+    const dc = ()=> console.log('duble click');
+    const mm = ()=> console.log('mouse move');
 
-//     return (
-     
-//    <div className={testApiS.mainWrapper}>
-//       <div className={testApiS.content}>
-
-//         <div> {counter} </div>
-
-//         <button onClick={plus}>CLICK</button>
-
-    
-
-//       </div>
-//     </div>
-  
-//   );
+return (
+    <div className={taS.mainWrapper}>
+        <div 
+        className={taS.square}
+        onDoubleClick={dc}
+        onMouseMove = {mm}
+        >
+           <div className={taS.text} > TEST </div>
+        </div>
+    </div>
+)
 }
 
 export default TestApi;

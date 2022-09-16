@@ -1,24 +1,21 @@
-import { Link } from 'react-router-dom'
-import messengerS from './Messenger.module.css'
+import { Link, useLocation } from "react-router-dom";
+import messengerS from "./Messenger.module.css";
+import data from "../../data/data.json"
 
-const messengerData = [
-    {person: 'Stasic', key: 1},
-    {person: 'Anya', key: 2},
-    {person: 'Ilon', key: 3},
-    {person: 'Louis', key: 4},
-    {person: 'Zlatan', key: 5},
-] 
-
-const messengerMap = messengerData.map(e=> <div key={e.key} className={messengerS.item}>{e.person}</div> )
 
 
 
 function Messenger() {
-    return(
-        <div>
-{messengerMap}
-</div>
-        )
+  
+  const matchUrl = useLocation()
+  
+  const messengerMap = data.messengerData.map((e) => (
+    <Link key={e.key} to={`${matchUrl.pathname}/${e.userId}`} className={messengerS.item}> {e.person}</Link>
+  ));
+
+
+
+  return <>{messengerMap}</>;
 }
 
-export default Messenger
+export default Messenger;
