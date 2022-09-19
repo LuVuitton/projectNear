@@ -1,4 +1,4 @@
-import {combaineReducers} from 'redux';
+import {combineReducers} from 'redux';
 
 
-export default combaineReducers({})
+export default combineReducers({})
