@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers"; //не указ назв т.к. исп index
-import initialState from "./store/initialState";
+import initialState from "./store";
 
 const store = createStore(rootReducer, initialState);
 
