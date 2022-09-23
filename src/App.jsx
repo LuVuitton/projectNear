@@ -8,9 +8,10 @@ import Setting from "./components/Setting/Setting";
 import TestApi from "./components/TestApi/TestApi";
 import NavBottom from "./components/NavBottom/NavBottom";
 import appS from "./App.module.css";
-import { Routes, Route } from "react-router-dom";
 import Error from "./components/Error/Error";
 import Chat from "./components/Messenger/Chat/Chat";
+import { Routes, Route } from "react-router-dom";
+
 
 function App() {
   return (
@@ -27,14 +28,15 @@ function App() {
           <Route path="/Stack" element={<Stack />} />
           <Route path="/test" element={<TestApi />} />
           <Route path="*" element={<Error />} />
-
         </Routes>
       </div>
+      <pre>               !     !     !     4     !     !     !</pre>
 
       <footer className={appS.footer}>
         <NavBottom />
       </footer>
-    </div>
+  
+      </div>
   );
 }
 

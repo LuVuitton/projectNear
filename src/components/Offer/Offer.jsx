@@ -1,52 +1,79 @@
+import React from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ACaddOfferToStack } from "../../action/actionCreator";
 import offerS from "./Offer.module.css";
-import data from "../../data/data.json";
 
-// const langaugeData = [
-//   { langauge: "Ukrainian", flag: "flag", key: 1 },
-//   { langauge: "Chinese", flag: "flag", key: 2 },
-//   { langauge: "English", flag: "flag", key: 3 },
-//   { langauge: "Spanish", flag: "flag", key: 4 },
-//   { langauge: "Arabic", flag: "flag", key: 5 },
-//   { langauge: "French", flag: "flag", key: 6 },
-//   { langauge: "German", flag: "flag", key: 7 },
-//   { langauge: "Italian", flag: "flag", key: 8 },
-//   { langauge: "Turkish", flag: "flag", key: 9 },
-//   { langauge: "Korean", flag: "flag", key: 10 },
-//   { langauge: "Hindi", flag: "flag", key: 11 },
-//   { langauge: "Japanese", flag: "flag", key: 12 },
-// ];
-
-const langaugeMap = data.langaugeData.map((e) => (
-  <option key={e.key}>
-    {e.langauge} {e.flag}{" "}
-  </option>
-));
+const langaugeData = [
+  { langauge: "English", flag: "flags/usa.png", key: 9 },
+  { langauge: "Ukrainian", flag: "flags/ukraine.png", key: 8 },
+  { langauge: "Italian", flag: "flags/italy.png", key: 5 },
+  { langauge: "Albanian", flag: "flags/albania.png", key: 1 },
+  { langauge: "Azerbaijani", flag: "flags/azerbaijan.png", key: 2 },
+  { langauge: "French", flag: "flags/france.png", key: 3 },
+  { langauge: "German", flag: "flags/germany.png", key: 4 },
+  { langauge: "Spanish", flag: "flags/spain.png", key: 6 },
+  { langauge: "Turkish", flag: "flags/turkey.png", key: 7 },
+];
 
 function Offer() {
+  const dispatch = useDispatch();
+  // const state = useSelector(state => state)
 
   const submit = (event) => {
-event.preventDefault(); // убирает перезагрузку страницы
-console.log(event.target.elements);
-};
+    event.preventDefault(); // убирает перезагрузку страницы
+    const dataOffer = event.target.elements; // получаем обьект с данными из формы, (внури получаем вэлью по "id".value)
+    dispatch(ACaddOfferToStack(dataOffer));
+  };
+  const refToLangaugeItem = React.createRef();
+  const toChooseLanguage = () =>{
+  }
+
+ 
+const [langauge, setLangauge] = useState('Select langauge')
+
+  const langaugeMap = langaugeData.map((e) => (
+    <li onClick={toChooseLanguage}  className={offerS.optionItem} key={e.key}>
+      <img ref={refToLangaugeItem} src={e.flag}/>
+      <p>{e.langauge}</p>
+    </li>
+  ));
+  
 
 
 
   return (
-    <form onSubmit={submit}>
-      <div className={offerS.mainWrapper}>
-        <select className={offerS.select}>{langaugeMap}</select>
-
-        <input type="text" id='inputAbout' className={offerS.inputAbout}></input>
-        <div className={offerS.option}>
-          <input type="number" id="inputMoney" className={offerS.inputMoney}></input>
-          <input id="inputLocation" className={offerS.inputLocation}></input>
+    <>
+      <form onSubmit={submit}>
+        <div>
+          <p>{langauge}</p>
         </div>
+        <div className={offerS.mainWrapper}>
+          <ul id="inputFlag" className={offerS.list}>
+            {langaugeMap}
+          </ul>
 
-        <button type="submit" className={offerS.button}>
-          ADD
-        </button>
-      </div>
-    </form>
+          <input id="inputAbout"
+            type="text"
+            className={offerS.inputAbout}
+          ></input>
+          <div className={offerS.option}>
+            <input id="inputMoney"
+              type="number"
+              className={offerS.inputMoney}
+            ></input>
+            <input id="inputLocation" 
+            className={offerS.inputLocation}>
+
+            </input>
+          </div>
+
+          <button type="submit" className={offerS.button}>
+            ADD
+          </button>
+        </div>
+      </form>
+    </>
   );
 }
 
