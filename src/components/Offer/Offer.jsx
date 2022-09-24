@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ACaddOfferToStack } from "../../action/actionCreator";
 import offerS from "./Offer.module.css";
 
@@ -18,54 +18,64 @@ const langaugeData = [
 
 function Offer() {
   const dispatch = useDispatch();
-  // const state = useSelector(state => state)
+  const [langauge, setLangauge] = useState({ nameLangauge: "Select langauge" });
+  const [chooseList, setChooseList] = useState(false);
 
   const submit = (event) => {
     event.preventDefault(); // убирает перезагрузку страницы
     const dataOffer = event.target.elements; // получаем обьект с данными из формы, (внури получаем вэлью по "id".value)
-    dispatch(ACaddOfferToStack(dataOffer));
+    dispatch(ACaddOfferToStack({ ...dataOffer, flag: langauge.flag }));
   };
-  const refToLangaugeItem = React.createRef();
-  const toChooseLanguage = () =>{
-  }
-
- 
-const [langauge, setLangauge] = useState('Select langauge')
 
   const langaugeMap = langaugeData.map((e) => (
-    <li onClick={toChooseLanguage}  className={offerS.optionItem} key={e.key}>
-      <img ref={refToLangaugeItem} src={e.flag}/>
+    <li
+      onClick={() => {
+        setLangauge({ flag: e.flag, nameLangauge: e.langauge }); //возвращаем обьект по сетСтейту, из него достаем имя языка(для заголовка) и флаг(для отправки в стек)
+        {
+          setChooseList((prev) => !prev);
+        } //скрываем меню языков
+      }}
+      className={offerS.optionItem}
+      key={e.key}
+    >
+      <img src={e.flag} alt="icon" />
       <p>{e.langauge}</p>
     </li>
   ));
-  
-
-
 
   return (
     <>
       <form onSubmit={submit}>
-        <div>
-          <p>{langauge}</p>
+        <div
+          onClick={() => {
+            setChooseList((prev) => !prev);
+          }}
+        >
+          <p className={offerS.langaugeTittle}>
+            <img src={langauge.flag} /> {langauge.nameLangauge} ▼
+          </p>
         </div>
         <div className={offerS.mainWrapper}>
-          <ul id="inputFlag" className={offerS.list}>
-            {langaugeMap}
-          </ul>
+          {chooseList && <ul className={offerS.list}>{langaugeMap}</ul>}
 
-          <input id="inputAbout"
+          <textarea
+            id="inputAbout"
             type="text"
             className={offerS.inputAbout}
-          ></input>
+            placeholder="write here"
+          />
           <div className={offerS.option}>
-            <input id="inputMoney"
+            <input
+              id="inputMoney"
               type="number"
               className={offerS.inputMoney}
-            ></input>
-            <input id="inputLocation" 
-            className={offerS.inputLocation}>
-
-            </input>
+              placeholder="0,00"
+            />
+            <input 
+            id="inputLocation" 
+            className={offerS.inputLocation} 
+            placeholder="w u?"/>
+          
           </div>
 
           <button type="submit" className={offerS.button}>

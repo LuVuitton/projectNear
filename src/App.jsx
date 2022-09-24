@@ -30,7 +30,7 @@ function App() {
           <Route path="*" element={<Error />} />
         </Routes>
       </div>
-      <pre>               !     !     !     4     !     !     !</pre>
+      <pre>               !     !     !     2     !     !     !</pre>
 
       <footer className={appS.footer}>
         <NavBottom />

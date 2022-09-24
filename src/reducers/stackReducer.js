@@ -1,4 +1,5 @@
 const stackReducer =(state=1, action)=>{
+    
     console.log(action);
     console.log('IN stackReducer');
     if (action.type === 'ADD_OFFER_TO_STACK') {

@@ -23,3 +23,8 @@ border: 1px solid black;
 .moreGreen {
     color: green;
 }
+
+.flag img{
+    width: 45px;
+    padding-top: 10px;
+}

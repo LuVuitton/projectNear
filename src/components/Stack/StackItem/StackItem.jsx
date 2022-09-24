@@ -11,7 +11,7 @@ const moreClassesArr =[stackS.more, moreClasses]
   return (
     <div onClick={()=>{setAbout(prev => !prev)}} className={stackS.mainWrapper}>
       <div className={stackS.item}>
-        <div>{props.flag}</div>
+        <div className={stackS.flag}><img src={props.flag} alt="hello"/></div>
         <div>{props.km}</div>
         <div>{props.money} $</div>
       </div>
