@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ACaddOfferToStack } from "../../action/actionCreator";
@@ -18,22 +19,41 @@ const langaugeData = [
 
 function Offer() {
   const dispatch = useDispatch();
-  const [langauge, setLangauge] = useState({ nameLangauge: "Select langauge" });
+  const [langauge, setLangauge] = useState({nameLangauge: " SLECT LANGAUGE v ",});
   const [chooseList, setChooseList] = useState(false);
+  const classesForMainWr = [offerS.mainWrapper, offerS.mainWrapperBlur].join(" ");
+  const refInputs = useRef();
+  const [imgInTittle, setImgInTittle] = useState(false);
+  const [formDone, setformDone] = useState(false);
+
+  const turnOfFormDone =()=> {
+    setTimeout(() => {
+      setformDone(false)
+    }, 1000);
+  }
+  const resetAfterAdd = () => {
+    refInputs.current.inputAbout.value = "";
+    refInputs.current.inputLocation.value = ""; 
+    refInputs.current.inputMoney.value = "";
+    setLangauge({ flag: "", nameLangauge: " SLECT LANGAUGE v " });
+    setImgInTittle(false);
+    setformDone(true);
+    turnOfFormDone()
+  };
 
   const submit = (event) => {
     event.preventDefault(); // убирает перезагрузку страницы
     const dataOffer = event.target.elements; // получаем обьект с данными из формы, (внури получаем вэлью по "id".value)
     dispatch(ACaddOfferToStack({ ...dataOffer, flag: langauge.flag }));
+    resetAfterAdd();
   };
 
   const langaugeMap = langaugeData.map((e) => (
     <li
       onClick={() => {
         setLangauge({ flag: e.flag, nameLangauge: e.langauge }); //возвращаем обьект по сетСтейту, из него достаем имя языка(для заголовка) и флаг(для отправки в стек)
-        {
-          setChooseList((prev) => !prev);
-        } //скрываем меню языков
+        setChooseList((prev) => !prev); //скрываем меню языков
+        setImgInTittle(true); //подставляем img в заголовок
       }}
       className={offerS.optionItem}
       key={e.key}
@@ -45,19 +65,19 @@ function Offer() {
 
   return (
     <>
-      <form onSubmit={submit}>
+      <form ref={refInputs} name="form" onSubmit={submit}>
         <div
           onClick={() => {
             setChooseList((prev) => !prev);
           }}
         >
           <p className={offerS.langaugeTittle}>
-            <img src={langauge.flag} /> {langauge.nameLangauge} ▼
+            {imgInTittle && <img src={langauge.flag} />} {langauge.nameLangauge}
           </p>
         </div>
-        <div className={offerS.mainWrapper}>
-          {chooseList && <ul className={offerS.list}>{langaugeMap}</ul>}
+        {chooseList && <ul className={offerS.list}>{langaugeMap}</ul>}
 
+        <div className={chooseList ? classesForMainWr : offerS.mainWrapper}>
           <textarea
             id="inputAbout"
             type="text"
@@ -71,11 +91,11 @@ function Offer() {
               className={offerS.inputMoney}
               placeholder="0,00"
             />
-            <input 
-            id="inputLocation" 
-            className={offerS.inputLocation} 
-            placeholder="w u?"/>
-          
+            <input
+              id="inputLocation"
+              className={offerS.inputLocation}
+              placeholder="w u?"
+            />
           </div>
 
           <button type="submit" className={offerS.button}>
@@ -83,6 +103,11 @@ function Offer() {
           </button>
         </div>
       </form>
+      {formDone && (
+        <div className={offerS.formDone}>
+          <img src="icons\done.png" alt="done" />
+        </div>
+      )}
     </>
   );
 }
