@@ -1,31 +1,15 @@
-import { useState } from "react";
-import taS from "./TestApi.module.css";
- 
-
 function TestApi() {
 
-
-    let [number, setNumber] = useState(1)
     
-    const clickBttn = ()=> {
-        setNumber(number+1)
-    }
+fetch('http://getpost.itgid.info/index2.php')
+.then(data=>{
+    console.log(data.text());
+})
 
-    // const dc = ()=> console.log('duble click');
-    // const mm = ()=> console.log('mouse move');
 
-return (
-    <div className={taS.mainWrapper}>
-        <div 
-        className={taS.square}
-        // onDoubleClick={dc}
-        // onMouseMove = {mm}
-        onMouseMove={clickBttn}
-        >
-           <div className={taS.text} > {number} </div>
-        </div>
-    </div>
-)
+
+
+  return <></>;
 }
 
 export default TestApi;
