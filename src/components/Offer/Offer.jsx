@@ -16,20 +16,22 @@ const langaugeData = [
   { langauge: "Spanish", flag: "flags/spain.png", key: 6 },
   { langauge: "Turkish", flag: "flags/turkey.png", key: 7 },
 ];
+const classesForMainWr = [offerS.mainWrapper, offerS.mainWrapperBlur].join(" ");
+
 
 function Offer() {
+
   const dispatch = useDispatch();
+  const refInputs = useRef();
   const [langauge, setLangauge] = useState({nameLangauge: " SLECT LANGAUGE v ",});
   const [chooseList, setChooseList] = useState(false);
-  const classesForMainWr = [offerS.mainWrapper, offerS.mainWrapperBlur].join(" ");
-  const refInputs = useRef();
   const [imgInTittle, setImgInTittle] = useState(false);
   const [formDone, setformDone] = useState(false);
 
   const turnOfFormDone =()=> {
     setTimeout(() => {
       setformDone(false)
-    }, 1000);
+    }, 2000);
   }
   const resetAfterAdd = () => {
     refInputs.current.inputAbout.value = "";
@@ -40,7 +42,6 @@ function Offer() {
     setformDone(true);
     turnOfFormDone()
   };
-
   const submit = (event) => {
     event.preventDefault(); // убирает перезагрузку страницы
     const dataOffer = event.target.elements; // получаем обьект с данными из формы, (внури получаем вэлью по "id".value)
@@ -65,7 +66,7 @@ function Offer() {
 
   return (
     <>
-      <form ref={refInputs} name="form" onSubmit={submit}>
+      <form ref={refInputs} onSubmit={submit}>
         <div
           onClick={() => {
             setChooseList((prev) => !prev);
