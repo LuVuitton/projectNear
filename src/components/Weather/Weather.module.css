@@ -1,0 +1,11 @@
+.mainWrapper {
+ height: 30px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgba(117, 117, 117, 0.726);
+  font-size: 15px;
+
+}
+

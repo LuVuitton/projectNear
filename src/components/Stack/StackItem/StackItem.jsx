@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import stackS from './StackItem.module.css'
 
 function StackItem(props) {
@@ -16,8 +17,11 @@ const moreClassesArr =[stackS.more, moreClasses]
         <div>{props.money} $</div>
       </div>
      
-      {about && <div > 
-        {props.description}
+      {about && <div className={stackS.about}>
+
+        <NavLink to='/profile'> <img src='#' alt='photo' className={stackS.propfilePhoto}/></NavLink>
+        <div className={stackS.aboutDesc}>{props.description}</div>
+        
       </div>}
 
       <div className={moreClassesArr.join(' ')} >{about?'hide description':'show more'}</div>

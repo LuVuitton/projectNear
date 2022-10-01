@@ -19,8 +19,7 @@ const langaugeData = [
 const classesForMainWr = [offerS.mainWrapper, offerS.mainWrapperBlur].join(" ");
 
 
-function Offer() {
-
+function Offer(props) {
   const dispatch = useDispatch();
   const refInputs = useRef();
   const [langauge, setLangauge] = useState({nameLangauge: " SLECT LANGAUGE v ",});

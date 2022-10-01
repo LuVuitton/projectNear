@@ -5,7 +5,7 @@ import Offer from "./components/Offer/Offer";
 import Profile from "./components/Profile/Profile";
 import Stack from "./components/Stack/Stack";
 import Setting from "./components/Setting/Setting";
-import TestApi from "./components/TestApi/TestApi";
+import Weather from "./components/Weather/Weather";
 import NavBottom from "./components/NavBottom/NavBottom";
 import appS from "./App.module.css";
 import Error from "./components/Error/Error";
@@ -15,28 +15,33 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
 function App() {
-  const apiKey = "928346fa14b100bf560110b1c5fef477";
+  const apiKey = "3f6dc0f2dd6011880df27000d470354f";
   const city = "Antratsit";
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
-  
-  const [apiWeather,setApiWeather] = useState({})
 
-  useEffect=()=>axios.get(url).then(res=> {
-    setApiWeather({name:res.data.name})
-  }, [])
+  const [apiWeather, setApiWeather] = useState({});
 
-  useEffect=()=>(()=>{
-console.log(apiWeather);
-console.log('usEf');
-  },[apiWeather])
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setApiWeather({
+        city: res.data.name,
+        temperature: res.data.main.temp,
+        description: res.data.weather[0].description,
+      });
+    });
+  }, []);
 
-
-  
+  // useEffect(() => {
+  //   console.log("usEf");
+  // }, [apiWeather]);
 
   return (
     <div className={appS.mainWrapper}>
+      <header className={appS.header}>
+        <Weather apiWeather={apiWeather} />
+      </header>
+
       <div className={appS.content}>
         <Routes>
           <Route path="/map" element={<Map />} />
@@ -47,17 +52,14 @@ console.log('usEf');
           <Route path="/profile" element={<Profile />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/Stack" element={<Stack />} />
-          <Route path="/test" element={<TestApi apiWeather={apiWeather}/>} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>
-      <pre>               !     !     !     3     !     !     !      </pre>
 
       <footer className={appS.footer}>
         <NavBottom />
       </footer>
-  
-      </div>
+    </div>
   );
 }
 
