@@ -14,13 +14,14 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import Preloader from "./components/Preloader/Preloader";
 
 function App() {
   const apiKey = "3f6dc0f2dd6011880df27000d470354f";
   const city = "Antratsit";
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
 
-  const [apiWeather, setApiWeather] = useState({});
+  const [apiWeather, setApiWeather] = useState();
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -52,6 +53,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/Stack" element={<Stack />} />
+          <Route path="/TEST" element={<Preloader />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

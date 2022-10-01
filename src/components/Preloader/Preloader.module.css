@@ -1,0 +1,12 @@
+.mainWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* border: 1px solid green; */
+}
+
+.mainWrapper img {
+    width: 70px;
+    max-width: 100%;
+}

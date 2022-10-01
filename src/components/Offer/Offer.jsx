@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ACaddOfferToStack } from "../../action/actionCreator";
+import Preloader from "../Preloader/Preloader";
 import offerS from "./Offer.module.css";
 
 const langaugeData = [
@@ -108,8 +109,7 @@ function Offer(props) {
           <img src="icons\done.png" alt="done" />
         </div>
       )}
-    </>
-  );
-}
+</>
+)}
 
 export default Offer;

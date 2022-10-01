@@ -1,11 +1,14 @@
 .mainWrapper {
- height: 30px;
+  max-height: 30px;
   margin-bottom: 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: rgba(117, 117, 117, 0.726);
   font-size: 15px;
-
 }
 
+.preloader{
+  height: 30px;
+  /* border: 1px solid yellow; */
+}
