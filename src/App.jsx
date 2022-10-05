@@ -14,33 +14,15 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-import Preloader from "./components/Preloader/Preloader";
+import UsersTest from "./components/UsersTest/UsersTest";
 
 function App() {
-  const apiKey = "3f6dc0f2dd6011880df27000d470354f";
-  const city = "Antratsit";
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=ru&units=metric&appid=${apiKey}`;
 
-  const [apiWeather, setApiWeather] = useState();
-
-  useEffect(() => {
-    axios.get(url).then((res) => {
-      setApiWeather({
-        city: res.data.name,
-        temperature: res.data.main.temp,
-        description: res.data.weather[0].description,
-      });
-    });
-  }, []);
-
-  // useEffect(() => {
-  //   console.log("usEf");
-  // }, [apiWeather]);
 
   return (
     <div className={appS.mainWrapper}>
       <header className={appS.header}>
-        <Weather apiWeather={apiWeather} />
+        <Weather />
       </header>
 
       <div className={appS.content}>
@@ -53,7 +35,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/Stack" element={<Stack />} />
-          <Route path="/TEST" element={<Preloader />} />
+          <Route path="/TEST" element={<UsersTest />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

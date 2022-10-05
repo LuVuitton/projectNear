@@ -1,8 +1,11 @@
 import Preloader from "../Preloader/Preloader";
 import weatherS from "./Weather.module.css";
+import WeatherReq from "./../../requests/weatherReq"
 
 const Weather = (props) => {
- if (!props.apiWeather) {
+  const weatherData = WeatherReq()
+  
+ if (!weatherData) {
   return( 
   <div className={weatherS.preloader}> 
   <Preloader/>
@@ -13,9 +16,9 @@ const Weather = (props) => {
   
   return (
     <div className={weatherS.mainWrapper}>
-      <div>{props.apiWeather.city}</div>
-      <div>{props.apiWeather.temperature}°C</div>
-      <div>{props.apiWeather.description}</div>
+      <div>{weatherData.city}</div>
+      <div>{weatherData.temperature}°C</div>
+      <div>{weatherData.description}</div>
     </div>
   );
 };
