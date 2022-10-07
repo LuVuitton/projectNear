@@ -6,3 +6,6 @@
  color: rgba(0, 0, 0, 0.726);
  font-size: 20px;
 }
+.item:hover{
+    background: rgba(125, 168, 154, 0.034);
+}

@@ -76,8 +76,7 @@ function Offer(props) {
             {imgInTittle && <img src={langauge.flag} />} {langauge.nameLangauge}
           </p>
         </div>
-        {chooseList && <ul className={offerS.list}>{langaugeMap}</ul>}
-
+        {chooseList && <div className={offerS.listWrapper}>  <ul className={offerS.list}>{langaugeMap}</ul></div>}
         <div className={chooseList ? classesForMainWr : offerS.mainWrapper}>
           <textarea
             id="inputAbout"

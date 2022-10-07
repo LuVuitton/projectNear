@@ -12,12 +12,12 @@ const UsersTest = () => {
     </div>
     )
    } 
-console.log(usersRes.users);
+
 const usersData = usersRes.users.map(e=>{
-return <li key={e.id}>
-  Photo: {(e.photos.small === null)?'No photo': <img src="e.photo"/> } 
-  Name: {e.name} | 
-  followed: {e.followed? <button>unfollow</button>:<button>follow</button> }
+return <li className={usersS.userItem}key={e.id}>
+ <div className={usersS.propfilPhoto}> {(e.photos.small === null)?<div>No photo</div>: <img src="e.photo"/> }</div> 
+  <div className={usersS.propfilName} >Name: {e.name} </div>
+ <div className={usersS.propfilFollow} > {e.followed? <button>unfollow</button>:<button>follow</button> }</div>
   </li>
 })
 
@@ -25,7 +25,7 @@ return <li key={e.id}>
   
   return (
     < >
-    <ul>
+    <ul className={usersS.mainWrapper}>
      {usersData}
      </ul>
     </>
