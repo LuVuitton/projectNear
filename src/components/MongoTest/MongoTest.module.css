@@ -1,0 +1,36 @@
+.mainWrapper {
+  margin: 10px auto 10px auto;
+}
+
+.preloader {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userItem {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.propfilPhoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px rgb(105, 105, 105) solid;
+  width: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  background-color: rgba(148, 192, 192, 0.103);
+}
+.propfilName {
+}
+.propfilFollow {
+}
+.blockDescription {
+}

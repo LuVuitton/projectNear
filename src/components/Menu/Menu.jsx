@@ -10,7 +10,8 @@ const menuData = [
   { "link": "/profile", "navName": "profile", "key": 5 },
   { "link": "/setting", "navName": "setting", "key": 6 },
   { "link": "/stack", "navName": "stack", "key": 7 },
-  { "link": "/test", "navName": "test", "key": 8 }
+  { "link": "/UsersTest", "navName": "UsersTest", "key": 8 },
+  { "link": "/MongoTest", "navName": "MongoTest", "key": 9 },
 ]
 
 

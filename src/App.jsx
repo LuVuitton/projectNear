@@ -15,10 +15,11 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import UsersTest from "./components/UsersTest/UsersTest";
+import MongoTest from "./components/MongoTest/MongoTest";
 
 function App() {
 
-
+console.log('test');
   return (
     <div className={appS.mainWrapper}>
       <header className={appS.header}>
@@ -35,7 +36,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/Stack" element={<Stack />} />
-          <Route path="/TEST" element={<UsersTest />} />
+          <Route path="/UsersTest" element={<UsersTest />} />
+          <Route path="/MongoTest" element={<MongoTest />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>
